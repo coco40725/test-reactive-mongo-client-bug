@@ -23,6 +23,7 @@ class TextbookMappingCtrl @Inject constructor(
 
     /**
      * time: 7s
+     * return data size: 6722
      */
     @Path("/reactive/in")
     @GET
@@ -35,6 +36,7 @@ class TextbookMappingCtrl @Inject constructor(
 
     /**
      * time: 1519ms
+     * return data size: 6722
      */
     @Path("/reactive")
     @GET
@@ -47,13 +49,13 @@ class TextbookMappingCtrl @Inject constructor(
 
         return Uni.join().all(unis).andCollectFailures().map { list ->
             val result = list.flatten()
-            println("result: $result")
             result
         }
     }
 
     /**
      * time: 343ms
+     * return data size: 6722
      */
     @Path("/improve/reactive/in")
     @GET
@@ -70,6 +72,7 @@ class TextbookMappingCtrl @Inject constructor(
 
     /**
      * time: 700ms
+     * return data size: 6722
      */
     @Path("/improve/reactive")
     @GET
@@ -87,6 +90,7 @@ class TextbookMappingCtrl @Inject constructor(
 
     /**
      * time: 358ms
+     * return data size: 6722
      */
     @Path("/non-reactive/in")
     @GET
@@ -98,6 +102,7 @@ class TextbookMappingCtrl @Inject constructor(
 
     /**
      * time: 653ms
+     * return data size: 6722
      */
     @Path("/non-reactive")
     @GET

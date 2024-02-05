@@ -72,23 +72,7 @@ class TextbookMappingRepo @Inject constructor(
 
         return Multi.createFrom()
             .publisher(AdaptersToFlow.publisher(query))
-//            .emitOn{ cmd ->
-//                emitOnCount++
-//                start = System.currentTimeMillis()
-//                println("start: $start")
-//                context.runOnContext{ cmd.run() }
-//                println("emitOnCount: $emitOnCount")
-//            }
-//            .onItem().transform {
-//                end = System.currentTimeMillis()
-//                if (start != 0L) {
-//                    println("duration: ${end - start}")
-//                }
-//                itemCount++
-//                println("itemCount: $itemCount")
-//                start = 0L
-//                it
-//            }
+            .runSubscriptionOn { cmd -> context.runOnContext { cmd.run() } }
             .collect()
             .asList()
     }

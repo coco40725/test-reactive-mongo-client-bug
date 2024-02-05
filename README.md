@@ -1,4 +1,4 @@
-# test-query-blocking
+# test-reactive-mongo-client-bug
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
